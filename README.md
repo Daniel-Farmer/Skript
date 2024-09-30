@@ -1,4 +1,3 @@
-SK Content Repository
 Welcome to my SK Content Repository! Here, I publish various Skript (SK) scripts for the community to use and enhance their Minecraft gameplay experience. Feel free to explore, use, and modify the scripts to suit your needs.
 
 Latest Addition: Creative Mode Event Handlers
