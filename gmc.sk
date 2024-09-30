@@ -1,0 +1,48 @@
+on inventory click:
+    if player's gamemode is creative:
+        if event.getCurrentItem() is not air:
+            execute console command "/log %now%, %event.getWhoClicked()% interacted with %event.getCurrentItem()% in creative mode at x: %player's location.x%, y: %player's location.y%, z: %player's location.z%, yaw: %player's location.yaw%, pitch: %player's location.pitch% in '%player's world%'"
+        if event.getClickedInventory() is a chest:
+            execute console command "/log %now%, %event.getWhoClicked()% put %event.getCurrentItem()% inside a chest in creative mode at x: %player's location.x%, y: %player's location.y%, z: %player's location.z%, yaw: %player's location.yaw%, pitch: %player's location.pitch% in '%player's world%'"
+        send "&5&l[Moonlit Network]&r" to event.getWhoClicked()
+        send "&7Time: &f%now%" to event.getWhoClicked()
+        send "&dAction: &fInteracted with %event.getCurrentItem()%" to event.getWhoClicked()
+        send "&7Location: &f%player's location%" to event.getWhoClicked()
+
+on drop:
+    if player's gamemode is creative:
+        if event-item is not air:
+            execute console command "/log %now%, %player% dropped %event-item% in creative mode at x: %player's location.x%, y: %player's location.y%, z: %player's location.z%, yaw: %player's location.yaw%, pitch: %player's location.pitch% in '%player's world%'"
+            send "&5&l[Moonlit Network]&r" to player
+            send "&7Time: &f%now%" to player
+            send "&dAction: &fDropped %event-item%" to player
+            send "&7Location: &f%player's location%" to player
+
+on pickup:
+    if player's gamemode is creative:
+        if event-item is not air:
+            execute console command "/log %now%, %player% picked up %event-item% in creative mode at x: %player's location.x%, y: %player's location.y%, z: %player's location.z%, yaw: %player's location.yaw%, pitch: %player's location.pitch% in '%player's world%'"
+            send "&5&l[Moonlit Network]&r" to player
+            send "&7Time: &f%now%" to player
+            send "&dAction: &fPicked up %event-item%" to player
+            send "&7Location: &f%player's location%" to player
+
+on place:
+    if player's gamemode is creative:
+        if event-block is not air:
+            execute console command "/log %now%, %player% placed %event-block% in creative mode at x: %player's location.x%, y: %player's location.y%, z: %player's location.z%, yaw: %player's location.yaw%, pitch: %player's location.pitch% in '%player's world%'"
+            send "&5&l[Moonlit Network]&r" to player
+            send "&7Time: &f%now%" to player
+            send "&dAction: &fPlaced %event-block%" to player
+            send "&7Location: &f%player's location%" to player
+
+on inventory click:
+    if player's gamemode is creative:
+        wait 1 tick
+        loop all items in player's inventory:
+            if loop-item is not air:
+                execute console command "/log %now%, %player% added %loop-item% to their inventory in creative mode at x: %player's location.x%, y: %player's location.y%, z: %player's location.z%, yaw: %player's location.yaw%, pitch: %player's location.pitch% in '%player's world%'"
+        send "&5&l[Moonlit Network]&r" to player
+        send "&7Time: &f%now%" to player
+        send "&dAction: &fAdded items to inventory" to player
+        send "&7Location: &f%player's location%" to player
